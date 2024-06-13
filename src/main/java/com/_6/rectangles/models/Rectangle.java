@@ -1,24 +1,29 @@
 package com._6.rectangles.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="rectangles")
 public class Rectangle {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int uid;
     private String name;
     private double width;
     private double height;
     private String color;
     
-    public Rectangle(int id, String name, double width, double height, String color) {
-        this.id = id;
+    public Rectangle(String name, double width, double height, String color) {
         this.name = name;
         this.width = width;
         this.height = height;
         this.color = color;
     }
-    public int getId() {
-        return id;
+    public int getUid() {
+        return uid;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
     public String getName() {
         return name;
@@ -44,10 +49,7 @@ public class Rectangle {
     public void setColor(String color) {
         this.color = color;
     }
-    
-    
-  
-    
+   
 
 
 

@@ -15,52 +15,68 @@
     <main class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h1><span th:text="${rectangle.name}"></span>'s Rectangle</h1>
+
+                <h1><span th:text="${rectangle.name}"></span>'s Display Page</h1>
+
+                <p>To edit the rectangle, click and change an attribute.</p>
+
 
                 <table class="rectangle">
                     <tr>
 
                         <td>Name</td>
-                        <td><span th:text="${rectangle.name}"></span></td>
+                        <td contenteditable="true"><span th:text="${rectangle.name}"></span></td>
+                        <!-- <td contenteditable="true"><input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="Name" required></td> -->
 
                     </tr>
                     <tr>
 
                         <td>Width</td>
-                        <td class="attribute"><span th:text="${rectangle.width}"></span></td>
+                        <td contenteditable="true" class="attribute"><span th:text="${rectangle.width}"></span></td>
 
                     </tr>
                     <tr>
 
                         <td>Height</td>
-                        <td class="attribute"><span th:text="${rectangle.height}"></span></td>
+                        <td contenteditable="true" class="attribute"><span th:text="${rectangle.height}"></span></td>
 
                     </tr>
                     <tr>
 
-                        <<td>color</td>
-                            <td class="attribute"><span th:text="${rectangle.color}"></span></td>
+                        <td>Color</td>
+                        <td contenteditable="true" class="attribute"><span th:text="${rectangle.color}"></span></td>
+                        <!-- <td contenteditable="true" name="color" class="editable-cell">
+                            <span th:text="${rectangle.color}"></span>
+                            <input type="color" span class="color-box" th:style="'background-color: ' + ${rectangle.color}"></span> -->
+                        </td>
 
                     </tr>
-                    <!-- <tr>
-            <th> </th>
-            <th>name</th>
-            <th>color</th>
-            <th></th>
-        </tr>
-        <row>
-            <tr th:if="${not #lists.isEmpty(re)}" th:each="rectangle : ${re}">
-                <td><span th:text="${rectangle.uid}"></span></td>
-                -- <td><span th:text="${rectangle.name}"></span></td> --
-                <td><a th:href="@{/rectangle/{uid}(uid=${rectangle.uid})}" th:text="${rectangle.name}"></a></td>
-                <td class="attribute"><span th:text="${rectangle.color}"></span></td>
-                <td class="delete">DELETE</td>
-            </tr>
-        </row> -->
-
-
                 </table>
+
+                <p>Don't forget to click Update Rectangle to save changes.</p>
+
+                
+
+
+                <div style="display: inline;">
+                    <form action="/rectangle/edit" method="post" style="display: inline;">
+                        <button type="submit" class="inline-button">Update Rectangle</button>
+                    </form>
+
+                    <!-- <a href="/add.html" style="text-decoration: none;">
+                        <button class="inline-button">Return</button>
+                    </a> -->
+
+                    <div class="d-grid gap-2 return">
+                        <a href="/rectangles/view" style="text-decoration: none;">
+                            <button class="btn btn-success">Return</button>
+                        </a>
+                    </div>
+                    
+                    <br>
+                </div>
             </div>
+
 
         </div>
     </main>

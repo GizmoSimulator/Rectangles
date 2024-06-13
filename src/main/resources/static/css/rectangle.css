@@ -68,11 +68,32 @@ h1{
     overflow: auto;
 }
 */
-
+/* 
 table, th, tr, td{
     border: 1px solid #c5c2c2;
     text-align: left;
     overflow-x: auto;
+} */
+.delete-link {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.delete-link:hover {
+    text-decoration: none;
+}
+
+.color-box {
+    display: inline-block;
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    border: 1px solid #ccc; /* Optional: Add border for clarity */
+    vertical-align: middle;
+    margin-right: 5px; /* Optional: Add some space between the box and the text */
 }
 
 #rectangles{
@@ -93,19 +114,32 @@ table, th, tr, td{
     overflow: auto;
 }
 
+
 th{
     background-color: #65a8ff;
 }
 
+.rectangle th, .rectangle td {
+    border: 1px solid #c5c2c2;
+    padding: 8px;
+    text-align: left;
+}
 
-th, td{
+#rectangles th, #rectangles td {
+    border: 1px solid #c5c2c2;
+    padding: 8px;
+    text-align: left;
+}
+
+
+/* th, td{
     padding: 5px 5px 5px 5px;
-    border: 1px solid black;
+    border: 2px solid black;
     min-width: none;
     font-size: 12px;
     font-family: Georgia;
     overflow:auto;
-}
+} */
 
 /* h2{
     color: #b32036;

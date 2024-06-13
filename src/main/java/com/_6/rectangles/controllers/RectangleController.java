@@ -2,6 +2,7 @@ package com._6.rectangles.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
@@ -17,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
+@EnableTransactionManagement
 @Controller
 public class RectangleController {
     @Autowired
     private RectangleRepository rectRepo;
-
-    
-
 
     @GetMapping("/rectangles/view")
     public String getAllRectangles(Model model)
@@ -83,14 +84,19 @@ public class RectangleController {
         return "rectangles/rectangleDetails";
     }
 
-
-
-
-
-
-
-
-
-
+    // Added and imported transactional so deleteRectangle works,
+    // or else gives NoEntityManager error
+    @Transactional
+    @PostMapping("/deleteRectangle")
+    public String deleteRectangle(@RequestParam("uid") String uidStr) {
+        try {
+            Integer uid = Integer.parseInt(uidStr);
+            rectRepo.deleteByUid(uid);
+            System.out.println("Deleting rectangle with UID: " + uid);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid UID format: " + uidStr);
+        }
+        return "redirect:/rectangles/view"; // Redirect to the view page after deletion
+    }
     
 }

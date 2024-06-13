@@ -1,9 +1,13 @@
 /* I included this for formatting, and so there would be no space on top */
-/* * { 
+* { 
     margin: 0; 
-    padding: 0; 
+    padding: 5px; 
     box-sizing: border-box; 
-}  */
+} 
+
+.inline-button {
+    display: inline-block;
+}
 
 /* body{
     background-color:#b32036;
@@ -45,7 +49,7 @@ table, th, tr, td{
     overflow-x: auto;
 }
 
-#rectangles{
+#rectangle{
     width: 100%;
     height: auto;
     border-collapse: collapse;

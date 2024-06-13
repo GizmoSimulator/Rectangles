@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/rectangle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
     <main class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h1>RECTANGLES</h1>
+
+                <div style="display: inline;">
+                    <a href="/add.html" style="text-decoration: none;">
+                        <button class="inline-button">Add Rectangle</button>
+                    </a>
+                    <form action="/rectangles/clear" method="post" style="display: inline;">
+                        <!-- Add CSRF token if your application is configured to use CSRF protection -->
+                        <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
+                        <button type="submit" class="inline-button">Clear Rectangles</button>
+                    </form>
+                    <br>
+                    <!-- pls change spacing -->
+                </div>
+
+                
+
+                
 
                 <table id = "rectangle">
                     <tr>

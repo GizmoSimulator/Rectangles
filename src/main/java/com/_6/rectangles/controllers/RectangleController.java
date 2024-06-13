@@ -22,6 +22,8 @@ public class RectangleController {
     @Autowired
     private RectangleRepository rectRepo;
 
+    
+
 
     @GetMapping("/rectangles/view")
     public String getAllRectangles(Model model)
@@ -31,19 +33,20 @@ public class RectangleController {
         List<Rectangle> rectangles = rectRepo.findAll();
 
         // List<Rectangle> rectangles = new ArrayList<>();
-        rectangles.add(new Rectangle("Hello", 0, 0, "BLUE"));
-        rectangles.add(new Rectangle("Non", 20, 30, "RED"));
+        // rectangles.add(new Rectangle("Hello", 0, 0, "BLUE"));
+        // rectangles.add(new Rectangle("Non", 20, 30, "RED"));
         // end of database call
 
         model.addAttribute("re", rectangles);
 
-        return "rectangles/showAll";
+        return "rectangles/home";
     }
+
 
     @PostMapping("/rectangles/clear")
     public String clearRectangles() {
         rectRepo.deleteAll();
-        return "redirect:/"; // Redirect to the home page or any other page as needed
+        return "redirect:/rectangles/view"; // Redirect to the home page or any other page as needed
     }
 
     @PostMapping("/rectangles/add")
@@ -60,7 +63,7 @@ public class RectangleController {
         // return "rectangles/addedRectangle";
         // return "home";
 
-        return "redirect:/home.html";
+        return "redirect:/rectangles/view";
     }
 
 

@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RectangleRepository extends JpaRepository<Rectangle,Integer>{
-    List<Rectangle> findByUid(int uid);
+    Rectangle findByUid(int uid);
     
 
 

@@ -3,6 +3,7 @@ package com._6.rectangles.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 
 import com._6.rectangles.models.Rectangle;
@@ -64,6 +65,22 @@ public class RectangleController {
         // return "home";
 
         return "redirect:/rectangles/view";
+    }
+
+    @GetMapping("/rectangle/{uid}")
+    public String viewRectangleDetails(@PathVariable("uid") Integer uid, Model model) {
+        // Retrieve the rectangle details from the database using the provided ID
+        Rectangle rectangle = rectRepo.findByUid(uid);
+
+        if (rectangle == null) {
+            throw new IllegalArgumentException("Invalid rectangle UID: " + uid);
+        }
+
+        // Add the rectangle object to the model to be displayed on the details page
+        model.addAttribute("rectangle", rectangle);
+
+        // Return the name of the Thymeleaf template for the rectangle details page
+        return "rectangles/rectangleDetails";
     }
 
 

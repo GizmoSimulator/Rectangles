@@ -19,6 +19,9 @@ public class Rectangle {
         this.height = height;
         this.color = color;
     }
+    public Rectangle() {
+        // Initialization code if needed
+    }
     public int getUid() {
         return uid;
     }

@@ -45,7 +45,7 @@ table, th, tr, td{
     overflow-x: auto;
 }
 
-table{
+#rectangles{
     width: 100%;
     height: auto;
     border-collapse: collapse;
@@ -55,7 +55,7 @@ table{
 }
 
 th{
-    background-color: #e3e2e2;
+    background-color: #65a8ff;
 }
 
 

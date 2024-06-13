@@ -20,8 +20,8 @@
                         <th></th>
                     </tr>
                     <row>
-                        <tr th:each="rectangle : ${re}">
-                            <td><span th:text="${rectangle.id}"></span></td>
+                        <tr th:if="${not #lists.isEmpty(re)}" th:each="rectangle : ${re}">
+                            <td><span th:text="${rectangle.uid}"></span></td>
                             <td><span th:text="${rectangle.name}"></span></td>
                             <td class="attribute"><span th:text="${rectangle.color}"></span></td>
                             <td class="delete">DELETE</td>

@@ -18,8 +18,8 @@ public class RectangleController {
         System.out.println("Getting all rectangles");
         //TODO: get all rectangles from database
         List<Rectangle> rectangles = new ArrayList<>();
-        rectangles.add(new Rectangle("Hello", 0, 0, "BLUE"));
-        rectangles.add(new Rectangle("Non", 20, 30, "RED"));
+        rectangles.add(new Rectangle(1,"Hello", 0, 0, "BLUE"));
+        rectangles.add(new Rectangle(2,"Non", 20, 30, "RED"));
         // end of database call
 
         model.addAttribute("re", rectangles);

@@ -53,8 +53,5 @@ public class Rectangle {
         this.color = color;
     }
    
-
-
-
     
 }

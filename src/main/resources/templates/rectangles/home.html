@@ -11,10 +11,10 @@
 <body>
     <main class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <h1>RECTANGLES</h1>
                 <!-- style="text-decoration: none;" for removing line -->
-                <div style="display: inline;">
+                <div class="home-buttons">
                     <a href="/add.html" style="text-decoration: none;">
                         <button class="inline-button">Add Rectangle</button>
                     </a>
@@ -25,19 +25,16 @@
                     <!-- pls change spacing -->
                 </div>
 
-                <p>Click on a name to see and edit rectangle details.</p>
-
                 <table id = "rectangles">
                     <tr>
-                        <th> </th>
-                        <th>name</th>
-                        <th>color</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Color</th>
                         <th></th>
                     </tr>
                     <row>
                         <tr th:if="${not #lists.isEmpty(re)}" th:each="rectangle : ${re}">
                             <td><span th:text="${rectangle.uid}"></span></td>
-                            <!-- <td><span th:text="${rectangle.name}"></span></td> -->
                             <td><a th:href="@{/rectangle/{uid}(uid=${rectangle.uid})}" th:text="${rectangle.name}"></a></td>
                             <td class="attribute"><span th:text="${rectangle.color}"></span></td>
                             <td class="attribute">
@@ -49,6 +46,8 @@
                         </tr>
                     </row>
                 </table>
+
+                <p>Click on a name to see and edit rectangle details.</p>
             </div>
 
         </div>

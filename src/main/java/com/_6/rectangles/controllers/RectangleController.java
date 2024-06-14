@@ -1,6 +1,7 @@
 package com._6.rectangles.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,7 @@ public class RectangleController {
     private RectangleRepository rectRepo;
 
     @GetMapping("/rectangles/view")
-    public String getAllRectangles(Model model)
-    {
+    public String getAllRectangles(Model model) {
         System.out.println("Getting all rectangles");
         // get all rectangles from database
         List<Rectangle> rectangles = rectRepo.findAll();
@@ -44,7 +44,6 @@ public class RectangleController {
         return "rectangles/home";
     }
 
-
     @PostMapping("/rectangles/clear")
     public String clearRectangles() {
         rectRepo.deleteAll();
@@ -52,7 +51,7 @@ public class RectangleController {
     }
 
     @PostMapping("/rectangles/add")
-    public String addRectangle(@RequestParam Map<String, String> newRectangle, HttpServletResponse response){
+    public String addRectangle(@RequestParam Map<String, String> newRectangle, HttpServletResponse response) {
         System.out.println("Added Rectangle");
         String newName = newRectangle.get("name");
         double newHeight = Double.parseDouble(newRectangle.get("height"));
@@ -97,6 +96,36 @@ public class RectangleController {
             System.out.println("Invalid UID format: " + uidStr);
         }
         return "redirect:/rectangles/view"; // Redirect to the view page after deletion
+    }
+
+    @PostMapping("/updateRectangle")
+    public String updateRectangle(@RequestParam("uid") String uidStr,
+                                  @RequestParam("name") String name,
+                                  @RequestParam("height") String heightStr,
+                                  @RequestParam("width") String widthStr,
+                                  @RequestParam("color") String color
+    ) {
+        try {
+            // Retrieve the rectangle from the database
+            Integer uid = Integer.parseInt(uidStr);
+            Double height = Double.parseDouble(heightStr);
+            Double width = Double.parseDouble(widthStr);
+            Rectangle rectangle = rectRepo.findByUid(uid);
+    
+            // Update the attributes
+            rectangle.setName(name);
+            rectangle.setHeight(height);
+            rectangle.setWidth(width);
+            rectangle.setColor(color);
+            // Update other attributes similarly
+    
+            // Save the updated rectangle
+            rectRepo.save(rectangle);
+    
+            return "redirect:/rectangle/" + uidStr; // Reload
+        } catch (Exception e) {
+            return "errorPage"; // Will give an error page.
+        }
     }
     
 }

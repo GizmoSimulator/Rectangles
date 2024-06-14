@@ -5,6 +5,28 @@
     box-sizing: border-box; 
 }  */
 
+.rectangleBlock{
+    /* default values before anything */
+    overflow: auto;
+    display: inline-block;
+}
+
+h1{
+    display: grid;
+    place-items: center;
+}
+
+p{
+    padding: 15px;
+    display: grid;
+    place-items: center;
+}
+
+.home-buttons{
+    display: inline-block;
+    padding: 10px 30px 10px 0px;
+}
+
 .inline-button {
     display: inline-block;
     margin-bottom: 15px;
@@ -15,65 +37,6 @@
     justify-content: flex-end;
 }
 
-/* .color-input-container {
-    position: relative;
-    display: inline-block;
-} */
-
-/* .placeholder-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #999;
-    pointer-events: none;
-    z-index: 1;
-} */
-
-/* input[type="color"] {
-    width: 100px; 
-    /* padding-left: 20px; Adjust padding to make room for the placeholder 
-} */
-
-/* body{
-    background-color:#b32036;
-    padding: 0px 40px;
-
-    margin-bottom: 0px;
-} */
-
-/* top right bottom left */
-/* main{
-     height: 80vh; 
-    padding: 10px 30px 40px;
-    background-color: white;
-    border-top: 20px solid #3D3935;
-    border-bottom: 30px solid #3D3935;
-}
-
-h1{
-    padding: 40px 0px 20px 0px;
-    font-family: Helvetica;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-#mainpart {
-    padding: 15px 10px 40px 10px;
-    background-color: #E9EFF1;
-    border: 1px solid #DCE6EA;
-    border-radius: 3px;
-    width: 70%;
-    height: 80%;
-    overflow: auto;
-}
-*/
-/* 
-table, th, tr, td{
-    border: 1px solid #c5c2c2;
-    text-align: left;
-    overflow-x: auto;
-} */
 .delete-link {
     background: none;
     border: none;
@@ -89,12 +52,19 @@ table, th, tr, td{
 
 .color-box {
     display: inline-block;
-    width: 20px; /* Adjust as needed */
-    height: 20px; /* Adjust as needed */
-    border: 1px solid #ccc; /* Optional: Add border for clarity */
+    width: 100px; 
+    height: 25px; 
+    border: 2px solid #ccc; 
     vertical-align: middle;
-    margin-right: 5px; /* Optional: Add some space between the box and the text */
+    position: absolute;
+    margin-left: 25px;
+    white-space: nowrap;
+    justify-content: center; 
+    align-items: center; 
+
+ 
 }
+
 
 #rectangles{
     width: 100%;
@@ -123,33 +93,17 @@ th{
     border: 1px solid #c5c2c2;
     padding: 8px;
     text-align: left;
+    overflow: auto;
 }
 
 #rectangles th, #rectangles td {
     border: 1px solid #c5c2c2;
     padding: 8px;
     text-align: left;
+    overflow: auto;
 }
 
 
-/* th, td{
-    padding: 5px 5px 5px 5px;
-    border: 2px solid black;
-    min-width: none;
-    font-size: 12px;
-    font-family: Georgia;
-    overflow:auto;
-} */
-
-/* h2{
-    color: #b32036;
-    padding: 7px 0px 7px 0px;
-    font-size: 15px;
-    font-family: Georgia;
-} */
-
-/* p{
-    padding: 10px 0px 20px 0px;
-    font-size: 12px;
-    font-family: Georgia;
-} */
+.editable-cell, .input{
+    width: 200px;
+}

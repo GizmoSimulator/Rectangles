@@ -1,9 +1,9 @@
 /* I included this for formatting, and so there would be no space on top */
-/* * { 
-    margin: 0; 
-    padding: 5px; 
-    box-sizing: border-box; 
-}  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .rectangleBlock{
     /* default values before anything */
@@ -12,13 +12,13 @@
 }
 
 .update-button{
-    margin-top: 30px;
-    margin-bottom: 15px;
+    display: inline-block;
 }
 
 h1{
     display: grid;
     place-items: center;
+    font-family:Impact;
 }
 
 p{
@@ -38,6 +38,7 @@ p{
 }
 
 .return{
+    margin-top: -38px;
     display: flex;
     justify-content: flex-end;
 }
@@ -94,12 +95,6 @@ th{
     background-color: #65a8ff;
 }
 
-.rectangle th, .rectangle td {
-    border: 1px solid #c5c2c2;
-    padding: 8px;
-    text-align: left;
-    overflow: auto;
-}
 
 #rectangles th, #rectangles td {
     border: 1px solid #c5c2c2;

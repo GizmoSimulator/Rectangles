@@ -18,20 +18,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <h1 th:text="${rectangle.name} + '\'s Display Page'"></h1>
+                <h1 class="text-center mt-5 mb-4" th:text="${rectangle.name} + '\'s Display Page'"></h1>
 
                 <mainpart>
                     <!-- using thymeleaf to edit width, height, color -->
                     <div class="rectangleBlock" th:style="'width: ' + ${rectangle.width}
                     + 'px; height: ' + ${rectangle.height} + 'px; background-color: '
                     + ${rectangle.color} + ';'+ ${additionalStyles}">
-                        <span th:text="${rectangle.name}" class = "rectangle-text"></span>
+                        <span th:text="${rectangle.name}" class="rectangle-text"></span>
                     </div>
 
                     <p>To edit the rectangle, click and change an attribute. (ID cannot be changed)</p>
 
                     <form action="/updateRectangle" method="post">
-                        <table class="rectangle">
+                        <table class="rectangle table table-striped table-bordered">
                             <tr>
                                 <td>ID</td>
                                 <input type="hidden" name="uid" th:value="${rectangle.uid}">
@@ -40,7 +40,8 @@
                             <tr>
                                 <td>Name</td>
                                 <td contenteditable="true" name="name" class="editable-cell">
-                                    <input type="text" class="input" name="name" th:value="${rectangle.name}"></span>
+                                    <input type="text" class="input" name="name" required
+                                        th:value="${rectangle.name}"></span>
                             </tr>
                             <tr>
                                 <td>Color</td>
@@ -51,34 +52,32 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Width</td>
-                                <td><input type="number" class="input" id="width" name="width" step="0.01"
+                                <td>Width (px)</td>
+                                <td><input type="number" class="input" id="width" name="width" step="0.01" min="0"
                                         th:value="${rectangle.width}" required></td>
                             </tr>
                             <tr>
-                                <td>Height</td>
-                                <td><input type="number" class="input" id="height" name="height" step="0.01"
+                                <td>Height (px)</td>
+                                <td><input type="number" class="input" id="height" name="height" step="0.01" min="0"
                                         th:value="${rectangle.height}" required>
                                 </td>
                             </tr>
                         </table>
+                        <p>Don't forget to click 'Update Changes' to save changes.</p>
                         <button class="btn btn-outline-primary update-button" type="submit">Update Changes</button>
                     </form>
 
-                    <p>Don't forget to click 'Update Changes' to save changes.</p>
-
-                    <div style="display: inline;">
-                        <div class="d-grid gap-2 return">
-                            <a href="/rectangles/view" style="text-decoration: none;">
-                                <button class="btn btn-success">Return</button>
-                            </a>
-                        </div>
-
-                        <br>
+                    <div class="d-grid gap-2 return" style="margin-top: -38px;">
+                        <a href="/rectangles/view" style="text-decoration: none;">
+                            <button class="btn btn-success">Return</button>
+                        </a>
                     </div>
+
+                    <br>
+
                 </mainpart>
             </div>
-            
+
 
         </div>
     </main>

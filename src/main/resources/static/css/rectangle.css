@@ -7,7 +7,6 @@
 
 .rectangleBlock{
     /* default values before anything */
-    overflow: auto;
     display: inline-block;
 }
 
@@ -38,7 +37,6 @@ p{
 }
 
 .return{
-    margin-top: -38px;
     display: flex;
     justify-content: flex-end;
 }
